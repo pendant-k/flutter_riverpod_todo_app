@@ -69,7 +69,7 @@ class MyWidget extends ConsumerWidget {
             backgroundColor: Colors.grey[900],
             context: context,
             builder: (context) => Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
                   const SizedBox(
@@ -87,15 +87,20 @@ class MyWidget extends ConsumerWidget {
                     height: 15,
                   ),
                   TextField(
+                    style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white),
                     autofocus: true,
                     decoration: const InputDecoration(),
                     onSubmitted: (value) {
                       ref.read(todosProvider.notifier).addTodo(
                             Todo(
-                                id: Random().nextInt(100).toString(),
+                                id: Random().nextInt(1000).toString(),
                                 desc: value,
                                 done: false),
                           );
+                      Navigator.pop(context);
                     },
                   ),
                 ],

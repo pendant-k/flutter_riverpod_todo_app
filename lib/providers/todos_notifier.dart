@@ -51,7 +51,7 @@ class TodosNotifier extends StateNotifier<List<Todo>> {
   void toggle(String id) {
     state = [
       for (final todo in state)
-        if (todo.id == id) todo.copyWith(done: !todo.done)
+        if (todo.id == id) todo.copyWith(done: !todo.done) else todo,
     ];
   }
 }
